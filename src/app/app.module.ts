@@ -23,7 +23,13 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     NewMomentComponent,
     MomentFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
