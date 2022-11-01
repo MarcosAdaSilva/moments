@@ -1,7 +1,15 @@
-<form (ngSubmit)="submit()">
+<form (ngSubmit)="submit()" [formGroup]="momentForm" #formDIr="ngForm">
   <div class="form-group">
     <label for="title">Título:</label>
-    <input type="text" placeholder="Coloque um título aqui" required />
+    <input
+      type="text"
+      placeholder="Coloque um título aqui"
+      formControlName="title"
+      required
+    />
+    <div *ngIf="title.invalid && formDir.submitted">
+      <p>O título é obrigatório.</p>
+    </div>
   </div>
   <div class="form-group">
     <label for="description">Descrição:</label>

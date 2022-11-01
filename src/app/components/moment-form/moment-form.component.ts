@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-moment-form',
@@ -8,7 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MomentFormComponent implements OnInit {
   @Input() btnText!: string;
 
+  momentForm!: FormGroup;
+
   constructor() {}
 
   ngOnInit(): void {}
+  submit() {
+    console.log('Enviou formulario');
+  }
 }
