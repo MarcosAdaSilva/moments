@@ -1,4 +1,4 @@
-<form (ngSubmit)="submit()" [formGroup]="momentForm" #formDIr="ngForm">
+<form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
   <div class="form-group">
     <label for="title">Título:</label>
     <input
@@ -7,7 +7,7 @@
       formControlName="title"
       required
     />
-    <div *ngIf="title.invalid && formDir.submitted">
+    <div *ngIf="title.invalid && formDir.submitted" class="validation.error">
       <p>O título é obrigatório.</p>
     </div>
   </div>
