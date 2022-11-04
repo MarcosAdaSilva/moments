@@ -1,0 +1,7 @@
+.message {
+  position: fixed;
+  top: 3em;
+  width: 50%;
+  margin-left: 50%;
+  left: -25%;
+}
