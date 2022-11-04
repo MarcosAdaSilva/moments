@@ -12,7 +12,7 @@ import { MessagesService } from 'src/app/services/messages.service';
 export class MessagesComponent implements OnInit {
   faTimes = faTimes;
 
-  constructor(private messagesService: MessagesService) {}
+  constructor(public messagesService: MessagesService) {}
 
   ngOnInit(): void {}
 }
