@@ -38,5 +38,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search(event: any): void {}
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+
+    this.moments = this.allMoments.filter((moment) => {
+      return moment.title.toLowerCase().includes(value);
+      // quando colocar arow function num scopo de bloco colocar obrigatóriamente um return
+    });
+  }
 }
