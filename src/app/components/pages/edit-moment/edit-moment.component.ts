@@ -23,7 +23,7 @@ export class EditMomentComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.momentService.getMoment(id).subscribe((item) => {
-      this.moment = moment;
+      this.moment = item.data;
     });
   }
 }
