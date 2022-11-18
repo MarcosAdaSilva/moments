@@ -9,6 +9,7 @@ import {
 
 import { MomentService } from 'src/app/services/moment.service';
 import { MessagesService } from 'src/app/services/messages.service';
+import { CommentService } from 'src/app/services/comment.service';
 
 import { Moment } from 'src/app/Moment';
 import { Comment } from 'src/app/Comment';
@@ -29,11 +30,14 @@ export class MomentComponent implements OnInit {
   faTimes = faTimes;
   faEdit = faEdit;
 
+  commentForm!: FormGroup;
+
   constructor(
     private momentService: MomentService,
     private route: ActivatedRoute,
     private messagesServices: MessagesService,
-    private router: Router
+    private router: Router,
+    private CommentService: CommentService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +46,21 @@ export class MomentComponent implements OnInit {
     this.momentService
       .getMoment(id)
       .subscribe((item) => (this.moment = item.data));
+
+    this.commentForm = new FormGroup({
+      text: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
+    });
   }
+
+  get text() {
+    return this.commentForm.get('text')!;
+  }
+
+  get username() {
+    return this.commentForm.get('username')!;
+  }
+
   async removeHandler(id: number) {
     await this.momentService.removeMoment(id).subscribe();
 
@@ -50,4 +68,6 @@ export class MomentComponent implements OnInit {
 
     this.router.navigate(['/']);
   }
+
+  onSubmit(FormGroupDirective: FormGroupDirective) {}
 }
