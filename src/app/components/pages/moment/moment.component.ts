@@ -69,5 +69,21 @@ export class MomentComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  onSubmit(FormGroupDirective: FormGroupDirective) {}
+  async onSubmit(FormGroupDirective: FormGroupDirective) {
+    if (this.commentForm.invalid) {
+      return;
+    }
+
+    const data: Comment = this.commentForm.value;
+
+    data.momentId = Number(this.moment!.id);
+
+    await this.CommentService.createComment(data).subscribe((comment) =>
+      this.moment!.comments!.push(comment.data)
+    );
+
+    this.messagesServices.add('Comentário adicionado!');
+    // reseta o form
+    this.commentForm.reset();
+  }
 }
