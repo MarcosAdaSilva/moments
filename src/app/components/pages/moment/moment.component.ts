@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormGroupDirective,
+} from '@angular/forms';
 
 import { MomentService } from 'src/app/services/moment.service';
 import { MessagesService } from 'src/app/services/messages.service';
 
 import { Moment } from 'src/app/Moment';
+import { Comment } from 'src/app/Comment';
 
 import { environment } from 'src/environments/environment';
 
